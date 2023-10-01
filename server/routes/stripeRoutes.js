@@ -44,13 +44,13 @@ router.post("/create-checkout-session", async (req, res) => {
   }
 });
 
-router.post('/stripe-checkout-webhook', async (req, res) => {
-  const sig = req.headers['stripe-signature'];
+router.post('/stripe-checkout-webhook', express.json({type: 'application/json'}), async (req, res) => {
   try {
+    const event = req.body;
     console.log("Webhook req.body:", req.body)
     console.log("Webhook metadata:", req.body.data.object.metadata)
     console.log("Webhook metadata:", req.body.data.object.metadata.userId)
-    const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+    console.log('event:', event)
 
     // Handle the event based on its type (e.g., checkout.session.completed)
     if (event.type === 'checkout.session.completed') {
