@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors({ origin: ["http://localhost:3000", "https://virtual-emporium.onrender.com/"], credentials: true }));
 
-router.post('/stripe-checkout-webhook', async (req, res) => {
+app.post('/stripe-checkout-webhook', async (req, res) => {
   const sig = req.headers['stripe-signature'];
   try {
     const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
