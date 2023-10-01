@@ -49,6 +49,7 @@ router.post('/stripe-checkout-webhook', async (req, res) => {
   try {
     console.log("Webhook req.body:", req.body)
     console.log("Webhook metadata:", req.body.data.object.metadata)
+    console.log("Webhook metadata:", req.body.data.object.metadata.userId)
     const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
 
     // Handle the event based on its type (e.g., checkout.session.completed)
