@@ -28,7 +28,6 @@ const NavBar: FC<NavBarProps> = ({ windowWidth, allProducts, isLoggedIn, getUser
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [totalItems, setTotalItems] = useState(0)
-  const shoppingCartList: any = [];
   const navigate = useNavigate()
   const location = useLocation()
 

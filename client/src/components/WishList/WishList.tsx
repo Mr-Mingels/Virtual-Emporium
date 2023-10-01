@@ -14,7 +14,6 @@ interface WishListProps {
 const WishList: FC<WishListProps> = ({ windowWidth, wishList, userInfo, getUserWishListInfo, isLoggedIn }) => {
     const [removeModalOpen, setRemoveModalOpen] = useState(false)
     const [modalIndex, setModalIndex] = useState<number | null>(null);
-    const [loader, setLoader] = useState(false)
     const [imgBounds, setImgBounds] = useState<DOMRect | null>(null);
     const [toggleUseEffectHook, setToggleUseEffectHook] = useState(false)
     const imgRef = useRef<HTMLImageElement>(null);
