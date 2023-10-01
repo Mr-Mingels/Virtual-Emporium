@@ -12,35 +12,11 @@ const connectToMongoDb = require("./controllers/mongoController");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes")
 const stripeRoutes = require("./routes/stripeRoutes")
-const Product = require("./models/product");
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
-const webhookSecret = process.env.STRIPE_SIGNING_SECRET
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({ origin: ["http://localhost:3000", "https://virtual-emporium.onrender.com/"], credentials: true }));
-
-app.post('/stripe-checkout-webhook', async (req, res) => {
-  const sig = req.headers['stripe-signature'];
-  try {
-    console.log('Webhook payload:', req.body);
-    const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
-
-    // Handle the event based on its type (e.g., checkout.session.completed)
-    if (event.type === 'checkout.session.completed') {
-      const userId = event.data.object.metadata.userId;
-      // Update your database or perform other actions
-      await Product.deleteMany({ userID: userId });
-      console.log('Checkout completed:', event.data.object.id);
-    }
-
-    res.json({ received: true });
-  } catch (err) {
-    console.error('Error handling webhook:', err);
-    res.status(400).send('Webhook Error');
-  }
-})
 
 // Parse incoming JSON request bodies and make the data available in req.body
 app.use(express.json());
