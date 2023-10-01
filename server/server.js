@@ -12,6 +12,9 @@ const connectToMongoDb = require("./controllers/mongoController");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes")
 const stripeRoutes = require("./routes/stripeRoutes")
+const Product = require("./models/product");
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const webhookSecret = process.env.STRIPE_SIGNING_SECRET
 const app = express();
 
 const PORT = process.env.PORT || 5000;
