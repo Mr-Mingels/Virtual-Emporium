@@ -24,6 +24,7 @@ app.use(cors({ origin: ["http://localhost:3000", "https://virtual-emporium.onren
 app.post('/stripe-checkout-webhook', async (req, res) => {
   const sig = req.headers['stripe-signature'];
   try {
+    console.log('Webhook payload:', req.body);
     const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
 
     // Handle the event based on its type (e.g., checkout.session.completed)
