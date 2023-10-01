@@ -1,0 +1,337 @@
+.authWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b1b1b80;
+}
+
+.authContent {
+    width: 450px;
+    background-color: white;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1b1b1b;
+}
+
+.authContent.logOut {
+    width: 576px;
+    justify-content: unset;
+    align-items: unset;
+}
+
+.authLogoWrapper {
+    min-width: 40px;
+    min-height: 45px;
+    width: 40px;
+    height: 45px;
+    background-color: #1b1b1b;
+    border: 2px solid #1b1b1b;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.authLogoIcon {
+    width: 22px;
+    height: 22px;
+    color: #FFD700;
+}
+
+.authTitle {
+    font-size: 22px;
+    font-weight: 500;
+    color: #1b1b1b;
+}
+
+.authDemoAccountTxtWrapper {
+    margin-top: 6px;
+    padding-bottom: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 34px;
+    align-items: flex-end;
+    border-bottom: 1px solid #dadada
+}
+
+.authDemoAccountTxt {
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #1b1b1b;
+}
+
+.authDemoLoader {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+}
+
+.authDemoLoader::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 2px solid #1b1b1b;
+    animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    width: 100%;
+    color: #1b1b1b;
+}
+
+.authLabel {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.authRequireTag {
+    color: rgb(255, 100, 100);
+}
+
+.authFormEmailInput,
+.authFormPassWordInput {
+    color: #1b1b1b;
+    margin-bottom: 24px;
+    outline: unset;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid #dadada;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.authFormEmailInput:focus,
+.authFormPassWordInput:focus {
+    border-color: #1b1b1b;
+}
+
+.authFormEmailInput.field::placeholder,
+.authFormPassWordInput.field::placeholder {
+    color: rgb(255, 100, 100);
+}
+
+.authBtnsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.authBtn {
+    cursor: pointer;
+    height: 42px;
+    font-size: 14px;
+    border: 1px solid #1b1b1b;
+    color: white;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.authBtn.authLoader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b1b1b;
+}
+
+.authBtn.authenticate {
+    background-color: #1b1b1b;
+}
+
+.authBtn.authenticate:hover {
+    background-color: #FFD700;
+    color: #1b1b1b;
+}
+
+.authBtn.close {
+    background-color: transparent;
+    color: #1b1b1b;
+}
+
+.authBtn.close:hover {
+    background-color: #1b1b1b;
+    color: white;
+}
+
+.authPromptWrapper {
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    color: #757575;
+}
+
+.authPrompt {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #1b1b1b;
+}
+
+.authLogOutTitle {
+    font-size: 22px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #dadada;
+    font-weight: 500;
+    color: #1b1b1b;
+}
+
+.authLogOutTxtWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 24px 0 24px 0;
+    gap: 6px;
+}
+
+.authLogOutTxt {
+    color: #1b1b1b;
+}
+
+.authLogOutTxt.accountInfo {
+    font-size: 13.5px;
+}
+
+.authLogOutBtnsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.authLogOutBtns {
+    height: 52px;
+    width: 100%;
+    background-color: #1b1b1b;
+    border: 1px solid #1b1b1b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+.authLogOutBtns.authLoader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authLogOutBtns:hover {
+    background-color: #FFD700;
+    color: #1b1b1b;
+}
+
+.authLogOutBtns.close {
+    background-color: white;
+    color: #1b1b1b;
+}
+
+.authLogOutBtns.close:hover {
+    background-color: #1b1b1b;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .authContent.logOut {
+        width: calc(576px + (100vw - 700px) / 1.7);
+    }
+}
+
+@media (max-width: 500px) {
+    .authContent {
+        width: calc(450px + (100vw - 500px) / 1.2);
+    }
+
+    .authContent.logOut {
+        width: calc(456px + (100vw - 500px) / 1.1);
+    }
+
+    .authLogOutTitle {
+        font-size: calc(20px + (100vw - 500px) / 110);
+    }
+
+    .authLogOutTxt.accountInfo {
+        font-size: calc(12.5px + (100vw - 500px) / 110);
+    }
+
+    .authLogOutTxt {
+        font-size: calc(15px + (100vw - 500px) / 110);
+    }
+
+    .authLogOutBtns {
+        height: calc(48px + (100vw - 500px) / 40);
+        font-size: calc(13px + (100vw - 500px) / 110);
+    }
+
+    .authTitle {
+        font-size: calc(22px + (100vw - 500px) / 110);
+    }
+
+    .authDemoAccountTxt {
+        font-size: calc(12px + (100vw - 500px) / 110);
+    }
+
+    .authLabel {
+        font-size: calc(15px + (100vw - 500px) / 110);
+    }
+
+    .authFormEmailInput {
+        font-size: calc(13px + (100vw - 500px) / 110);
+    }
+
+    .authBtn {
+        font-size: calc(14px + (100vw - 500px) / 110);
+    }
+
+    .authPromptWrapper {
+        font-size: calc(12px + (100vw - 500px) / 110);
+    }
+}

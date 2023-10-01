@@ -1,0 +1,101 @@
+.wishListItemRemoveModalWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #1b1b1b80;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: default;
+}
+
+.wishListItemRemoveModalContent {
+    width: 576px;
+    padding: 24px;
+    background-color: white;
+    border: 1px solid #1b1b1b;
+}
+
+.wishListItemRemoveModalHeaderTxt {
+    font-size: 22px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #dadada;
+    font-weight: 500;
+    color: #1b1b1b;
+}
+
+.wishListItemRemoveModalTxt {
+    margin: 24px 0 16px 0;
+    color: #1b1b1b;
+}
+
+.wishListItemRemoveModalBtnsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.wishListItemRemoveModalBtn.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wishListItemRemoveModalBtn.loading:hover {
+    background-color: #1b1b1b;
+}
+
+.wishListItemRemoveModalBtn {
+    height: 52px;
+    width: 100%;
+    background-color: #1b1b1b;
+    border: 1px solid #1b1b1b;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+.wishListItemRemoveModalBtn:hover {
+    background-color: #FFD700;
+    color: #1b1b1b;
+}
+
+.wishListItemRemoveModalBtn.cancel {
+    background-color: white;
+    color: #1b1b1b;
+}
+
+.wishListItemRemoveModalBtn.cancel:hover {
+    color: white;
+    background-color: #1b1b1b;
+}
+
+@media (max-width: 700px) {
+    .wishListItemRemoveModalContent {
+        width: calc(576px + (100vw - 700px) / 1.7);
+    }
+}
+
+@media (max-width: 500px) {
+    .wishListItemRemoveModalContent {
+        width: calc(456px + (100vw - 500px) / 1.1);
+    }
+
+    .wishListItemRemoveModalHeaderTxt {
+        font-size: calc(20px + (100vw - 500px) / 110);
+    }
+
+    .wishListItemRemoveModalTxt {
+        font-size: calc(15px + (100vw - 500px) / 110);
+    }
+
+    .wishListItemRemoveModalBtn {
+        height: calc(48px + (100vw - 500px) / 40);
+        font-size: calc(13px + (100vw - 500px) / 110);
+    }
+}

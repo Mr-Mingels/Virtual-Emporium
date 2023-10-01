@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite
+}
+
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #1b1b1b;
+  animation: prixClipFix 2s linear infinite;
+}
+
+.noProductsErrorWrapper {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+}
+
+.noProductsErrorWrapper.shop {
+  height: 430px
+}
+
+.noProductsErrorTxt {
+  color: rgb(255, 100, 100);
+  font-size: 24px;
+}
+
+.suspenseLoaderWrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1b1b1b;
+}
+
+.mainLoaderWrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1b1b1b;
+  z-index: 9000;
+  cursor: default;
+}
+
+.mainLoader {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(0deg, rgba(255, 217, 0, 0.2) 33%, #FFD700 100%);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.mainLoader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #1b1b1b;
+}
+
+.btnLoader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite
+}
+
+.btnLoader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+  }
+}
+
+@media (max-width: 800px) {
+
+  .noProductsErrorWrapper {
+    height: calc(300px + (100vw - 800px) / 10);
+  }
+
+  .noProductsErrorTxt {
+    font-size: calc(24px + (100vw - 800px) / 50);
+  }
+}
+
+@media (max-width: 500px) {
+
+  .noProductsErrorWrapper {
+    height: calc(270px + (100vw - 500px) / 2);
+  }
+
+  .noProductsErrorTxt {
+    font-size: calc(18px + (100vw - 500px) / 50);
+  }
+}

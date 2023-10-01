@@ -1,0 +1,304 @@
+.carouselProductsWrapper {
+    margin-top: 48px;
+}
+
+.carouselProductsWrapper.related {
+    margin-top: 64px;
+}
+
+.carouselProductsContent {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.carouselProductsHeadingWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carouselProductsHeadingBtnsWrapper {
+    display: flex;
+}
+
+.carouselProductsHeadingBtn {
+    width: 46px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #1b1b1b;
+    transition: all 0.2s ease-in-out;
+    color: white;
+}
+
+.carouselProductsHeadingBtn:hover {
+    background-color: #FFD700;
+    color: #1b1b1b;
+}
+
+.carouselProductsHeadingBtn.leftArrow {
+    border-right: 1px solid #dadada;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.carouselProductsHeadingBtn.rightArrow {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.carouselProductsHeadingTitle {
+    color: #1b1b1b;
+    font-size: 28px;
+}
+
+.carouselProductsHeadingTitle.related {
+    font-weight: 500;
+}
+
+.renderedCarouselProductsWrapper {
+    overflow: hidden;
+}
+
+.renderedCarouselProducts {
+    display: flex;
+    transition: transform 0.44s ease-in-out;
+}
+
+.carouselProductContainer {
+    position: relative;
+    min-width: 33.3333%;
+}
+
+.carouselProductImg {
+    width: 100%;
+    padding: 48px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.carouselProductRating {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #1b1b1b;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.carouselProductRatingIcon {
+    width: 13px;
+    height: 13px;
+}
+
+.carouselProductInfoWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 24px;
+    gap: 32px;
+    width: 100%;
+}
+
+.carouselProductLabelWrapper {
+    color: #1b1b1b;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.carouselProductTitle {
+    font-size: 16px;
+    font-weight: 400;
+    width: 320px;
+    max-width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.carouselProductPrice {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.carouselProductShoppingCartWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 45px;
+    height: 45px;
+    background-color: #1b1b1b;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.2s ease-in-out;
+}
+
+.carouselProductShoppingCartWrapper:hover {
+    color: #FFD700;
+}
+
+.carouselProductShoppingCart {
+    height: 18px;
+    width: 18px;
+}
+
+.carouselProductsPaginationBarWrapper {
+    width: 100%;
+    height: 54px;
+}
+
+.carouselProductsPaginationBarContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.paginationBarWrapper {
+    width: 400px;
+    display: flex;
+}
+
+.paginationBar {
+    height: 12px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border-left: 1px solid #dadada;
+}
+
+.paginationBar:hover {
+    background-color: #FFD700 !important;
+}
+
+@media screen and (min-width: 1536.1px) and (max-width: 100vw) {
+    .carouselProductTitle {
+        width: calc(320px + (100vw - 1536px) / 3.3);
+    }
+}
+
+@media (max-width: 1536px) {
+    .carouselProductTitle {
+        width: calc(320px + (100vw - 1536px) / 3.3);
+    }
+}
+
+@media (max-width: 1032px) {
+    .carouselProductContainer {
+        min-width: 50%;
+    }
+
+    .carouselProductTitle {
+        width: calc(310px + (100vw - 1032px) / 3);
+    }
+}
+
+@media (max-width: 938px) {
+    .carouselProductsHeadingTitle {
+        font-size: calc(28px + (100vw - 938px) / 51.5);
+    }
+
+    .carouselProductsHeadingTitle.related {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 800px) {
+    .carouselProductsHeadingBtn {
+        width: calc(46px + (100vw - 800px) / 50);
+        height: calc(42px + (100vw - 800px) / 50);
+    }
+}
+
+@media (max-width: 611px) {
+    .carouselProductContainer {
+        min-width: 100%;
+    }
+
+    .carouselProductTitle {
+        width: calc(400px + (100vw - 611px) / 1);
+    }
+}
+
+@media (max-width: 500px) {
+    .carouselProductsPaginationBarWrapper {
+        height: calc(54px + (100vw - 500px) / 5);
+    }
+
+    .paginationBarWrapper {
+        width: calc(340px + (100vw - 500px) / 1.5);
+    }
+
+    .carouselProductsHeadingBtn {
+        width: calc(40px + (100vw - 500px) / 30);
+        height: calc(36px + (100vw - 500px) / 30);
+    }
+
+    .carouselProductsHeadingTitle {
+        font-size: calc(20px + (100vw - 500px) / 51.5);
+    }
+
+    .carouselProductsHeadingTitle.related {
+        font-size: calc(22px + (100vw - 500px) / 36.6669);
+    }
+
+    .carouselProductsHeadingIcon {
+        width: calc(16px + (100vw - 500px) / 50);
+        height: calc(16px + (100vw - 500px) / 50);
+    }
+
+    .carouselProductImg {
+        padding: calc(48px + (100vw - 500px) / 10);
+    }
+
+    .carouselProductRating {
+        font-size: calc(14px + (100vw - 500px) / 120);
+    }
+
+    .carouselProductRatingIcon {
+        width: calc(13px + (100vw - 500px) / 100);
+        height: calc(13px + (100vw - 500px) / 100);
+    }
+
+    .carouselProductInfoWrapper {
+        padding-left: calc(24px + (100vw - 500px) / 25);
+        padding-right: calc(24px + (100vw - 500px) / 25);
+        gap: calc(32px + (100vw - 500px) / 50);
+    }
+
+    .carouselProductShoppingCartWrapper {
+        min-width: calc(45px + (100vw - 500px) / 25);
+        height: calc(45px + (100vw - 500px) / 25);
+    }
+
+    .carouselProductShoppingCart {
+        min-width: calc(18px + (100vw - 500px) / 50);
+        height: calc(18px + (100vw - 500px) / 50);
+    }
+
+    .carouselProductTitle {
+        width: calc(300px + (100vw - 500px) / 1.2);
+        font-size: calc(16px + (100vw - 500px) / 40);
+    }
+
+    .carouselProductPrice {
+        font-size: calc(18px + (100vw - 500px) / 40);
+    }
+}

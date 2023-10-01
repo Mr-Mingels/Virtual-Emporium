@@ -1,0 +1,322 @@
+.shopWrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.shopContent {
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+}
+
+.shopBreadCrumbsWrapper {
+    list-style: none;
+    display: flex;
+    font-size: 13px;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.shopBreadCrumbItem {
+    color: #1b1b1b;
+}
+
+.shopBreadCrumbItem.searchResults {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shopBreadCrumbItemSeperator {
+    -webkit-user-select: none;
+    /* Chrome, Safari and Opera */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.shopCategoryTxt {
+    font-size: 32px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dadada;
+    color: #1b1b1b;
+}
+
+.resultsHeaderWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+}
+
+.resultsTxt,
+.filterTxt {
+    color: #1b1b1b;
+    font-size: 15px;
+}
+
+.filterOptionsWrapper {
+    height: 52px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #dadada;
+    position: relative;
+}
+
+.filterTxt {
+    font-size: 14px;
+}
+
+.filterBtnWrapper.sort-by {
+    position: relative;
+}
+
+.filterBtn {
+    color: #1b1b1b;
+    padding: 6px 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid #1b1b1b;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.2s ease-in-out;
+}
+
+.filterBtn.sort-by {
+    padding: 8px 12px;
+    font-weight: 400;
+    gap: 8px;
+}
+
+.filterBtn:hover {
+    background-color: #FFD700;
+    color: #1b1b1b;
+}
+
+.filterIcon {
+    margin-top: 2px;
+}
+
+.shopRenderedProductsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.shopProductLoaderWrapper {
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shopNoResultsWrapper {
+    width: 100%;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.shopNoResultsTxt {
+    color: #1b1b1b;
+}
+
+.shopNoResultsTxt.h2 {
+    font-size: 32px;
+}
+
+.shopNoResultsTxt.h3 {
+    font-size: 24px;
+}
+
+.shopProductWrapper {
+    width: 25%;
+    padding: 48px
+}
+
+.shopProductContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.shopProductImg {
+    width: 100%;
+}
+
+.shopProductCategoryTxt {
+    color: #6a6a6a;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.shopProductTitle {
+    font-weight: 500;
+    color: #1b1b1b;
+}
+
+.shopProductPrice {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+.shopRatingsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.shopProductIcon {
+    width: 16px;
+    height: 16px;
+    color: #dadada;
+}
+
+.shopProductIcon.fullStar {
+    color: #1b1b1b;
+}
+
+.shopRatingCount {
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+@media (max-width: 1536px) {
+    .shopProductWrapper {
+        padding: calc(48px + (100vw - 1536px) / 41.2309);
+    }
+}
+
+@media (max-width: 1000px) {
+    .shopProductWrapper {
+        padding: 36px;
+        width: 33.3333%;
+    }
+
+    .shopContent {
+        padding-right: calc(64px + (100vw - 1000px) / 6);
+        padding-left: calc(64px + (100vw - 1000px) / 6);
+    }
+}
+
+@media (max-width: 800px) {
+    .shopContent {
+        padding-right: calc(30px + (100vw - 800px) / 42);
+        padding-left: calc(30px + (100vw - 800px) / 42);
+        padding-top: calc(48px + (100vw - 800px) / 16);
+        padding-bottom: calc(48px + (100vw - 800px) / 16);
+    }
+
+    .shopNoResultsTxt.h2 {
+        font-size: calc(32px + (100vw - 800px) / 35);
+    }
+
+    .shopNoResultsTxt.h3 {
+        font-size: calc(24px + (100vw - 800px) / 38);
+    }
+
+    .shopProductWrapper {
+        padding: calc(42px + (100vw - 800px) / 25);
+        width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    .shopContent {
+        padding-right: calc(24px + (100vw - 500px) / 28);
+        padding-left: calc(24px + (100vw - 500px) / 28);
+        padding-top: calc(24px + (100vw - 500px) / 28);
+        padding-bottom: calc(24px + (100vw - 500px) / 28);
+    }
+
+    .shopBreadCrumbsWrapper {
+        font-size: calc(12px + (100vw - 500px) / 110);
+    }
+
+    .shopCategoryTxt {
+        font-size: calc(26px + (100vw - 500px) / 100);
+        padding-bottom: calc(8px + (100vw - 500px) / 100);
+    }
+
+    .resultsTxt {
+        font-size: calc(14px + (100vw - 500px) / 110);
+    }
+
+    .filterTxt {
+        font-size: calc(13px + (100vw - 500px) / 110);
+        margin-right: auto;
+    }
+
+    .filterBtn {
+        font-size: calc(13px + (100vw - 500px) / 110);
+    }
+
+    .filterOptionsWrapper {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: fit-content;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .shopProductWrapper {
+        padding: calc(48px + (100vw - 500px) / 10);
+        width: 100%;
+    }
+
+    .shopProductCategoryTxt {
+        font-size: calc(11px + (100vw - 500px) / 110);
+    }
+
+    .shopProductTitle {
+        font-size: calc(16px + (100vw - 500px) / 110);
+    }
+
+    .shopProductPrice {
+        font-size: calc(20px + (100vw - 500px) / 110);
+    }
+
+    .shopProductIcon {
+        width: calc(16px + (100vw - 500px) / 110);
+        height: calc(16px + (100vw - 500px) / 110);
+    }
+
+    .shopRatingCount {
+        font-size: calc(14px + (100vw - 500px) / 110);
+    }
+
+    .shopNoResultsWrapper {
+        align-items: center;
+        text-align: center;
+    }
+
+    .shopNoResultsTxt.h2 {
+        font-size: calc(23.5px + (100vw - 500px) / 100);
+    }
+
+    .shopNoResultsTxt.h3 {
+        font-size: calc(16px + (100vw - 500px) / 100);
+    }
+}
