@@ -6,9 +6,12 @@ const webhookSecret = process.env.STRIPE_SIGNING_SECRET
 
 router.post("/create-checkout-session", async (req, res) => {
   try {
+    const userId = req.user._id.toString();
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
+      metadata: { userId },
       line_items: req.body.map((product) => {
         // Convert the dollar amount to cents
         const priceInCents = Math.round(product.price * 100);
@@ -43,12 +46,12 @@ router.post("/create-checkout-session", async (req, res) => {
 
 router.post('/stripe-checkout-webhook', async (req, res) => {
   const sig = req.headers['stripe-signature'];
-  const userId = req.user._id.toString();
   try {
     const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
 
     // Handle the event based on its type (e.g., checkout.session.completed)
     if (event.type === 'checkout.session.completed') {
+      const userId = event.data.object.metadata.userId;
       // Update your database or perform other actions
       await Product.deleteMany({ userID: userId });
       console.log('Checkout completed:', event.data.object.id);
