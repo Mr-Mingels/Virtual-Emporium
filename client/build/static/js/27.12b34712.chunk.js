@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[27],{3027:function(n,e,t){t.r(e),t.d(e,{default:function(){return u}});t(2791);var c=t(184),u=function(){return(0,c.jsx)("div",{className:"notFoundWrapper",children:(0,c.jsx)("h2",{className:"notFoundTxt",children:"404 ERROR: PAGE NOT FOUND"})})}}}]);
+//# sourceMappingURL=27.12b34712.chunk.js.map

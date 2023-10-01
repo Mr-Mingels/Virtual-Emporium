@@ -29,7 +29,7 @@ const App = () => {
 
   const getUserInfo = async () => {
     try {
-      const response = await fetch("http://localhost:5000/user-info", { credentials: "include", });
+      const response = await fetch("/user-info", { credentials: "include", });
       // check for user authentication
       if (response.status === 401) {
         setIsLoggedIn(false)
@@ -50,7 +50,7 @@ const App = () => {
       return
     }
     try {
-      const response = await axios.get('http://localhost:5000/cart-products', { withCredentials: true, })
+      const response = await axios.get('/cart-products', { withCredentials: true, })
       if (response.status === 200) {
         const { cartProducts } = response.data;
         setShoppingCart(cartProducts)
@@ -68,7 +68,7 @@ const App = () => {
       return
     }
     try {
-      const response = await axios.get('http://localhost:5000/wishlist-items', { withCredentials: true, })
+      const response = await axios.get('/wishlist-items', { withCredentials: true, })
       if (response.status === 200) {
         const { wishListItems } = response.data;
         setWishList(wishListItems)

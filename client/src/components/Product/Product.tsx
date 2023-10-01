@@ -103,7 +103,7 @@ const Product: FC<ProductProps> = ({ windowWidth, allProducts, product, handleAu
         size: chosenSize,
         productQuantity: quantity,
       };
-      const response = await axios.post('http://localhost:5000/add-product-to-cart', newProduct, { withCredentials: true })
+      const response = await axios.post('/add-product-to-cart', newProduct, { withCredentials: true })
       if (response.status === 200) {
         setAddedToCart(true);
         setTimeout(() => {
@@ -129,7 +129,7 @@ const Product: FC<ProductProps> = ({ windowWidth, allProducts, product, handleAu
         ...product,
         userID: userInfo._id,
       };
-      const response = await axios.post('http://localhost:5000/add-product-to-wishlist', newProduct, { withCredentials: true })
+      const response = await axios.post('/add-product-to-wishlist', newProduct, { withCredentials: true })
       if (response.status === 200) {
         await getUserWishListInfo()
       }

@@ -16,7 +16,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
+app.use(cors({ origin: ["http://localhost:3000", "https://virtual-emporium.onrender.com/"], credentials: true }));
 
 // Parse incoming JSON request bodies and make the data available in req.body
 app.use(express.json());
@@ -54,14 +54,14 @@ app.get("/user-info", (req, res) => {
   }
 });
 
-/*
+
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Handle any remaining requests by serving the client's index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
-*/
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

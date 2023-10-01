@@ -51,7 +51,7 @@ const ShoppingCart: FC<ShoppingCartProps> = ({ windowWidth, shoppingCart, userIn
     const removeItemFromCart = async (productId: any) => {
         setLoader(true)
         try {
-            const response = await axios.delete('http://localhost:5000/remove-product', {
+            const response = await axios.delete('/remove-product', {
                 data: { productId },
                 withCredentials: true
             });
@@ -69,7 +69,7 @@ const ShoppingCart: FC<ShoppingCartProps> = ({ windowWidth, shoppingCart, userIn
     const handleCheckOut = async () => {
         setCheckOutLoader(true)
         try {
-            const response = await axios.post('http://localhost:5000/create-checkout-session', shoppingCart, { withCredentials: true })
+            const response = await axios.post('/create-checkout-session', shoppingCart, { withCredentials: true })
             if (response.status === 200) {
                 const { url } = response.data;
                 window.location.href = url;

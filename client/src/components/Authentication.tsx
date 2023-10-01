@@ -62,7 +62,7 @@ const Authentication: FC<AuthProps> = ({ handleAuthenticationClose, isLoggedIn, 
         try {
             const path = authConfig === 'signUp' ? "sign-up-page" : "log-in-page";
 
-            const response = await axios.post(`http://localhost:5000/${path}`, user, { withCredentials: true, });
+            const response = await axios.post(`/${path}`, user, { withCredentials: true, });
             if (authConfig === 'signUp' && response.status === 200) {
                 setAuthConfig('logIn')
                 setEmail({ ...email, value: "" });
@@ -128,7 +128,7 @@ const Authentication: FC<AuthProps> = ({ handleAuthenticationClose, isLoggedIn, 
             password: "1234",
         };
         try {
-            const response = await axios.post(`http://localhost:5000/log-in-page`, user, { withCredentials: true });
+            const response = await axios.post(`/log-in-page`, user, { withCredentials: true });
             if (response.status === 200) {
                 await getUserInfo()
                 handleAuthenticationClose(false)
@@ -146,7 +146,7 @@ const Authentication: FC<AuthProps> = ({ handleAuthenticationClose, isLoggedIn, 
     const logOut = async () => {
         setLoader(true)
         try {
-            const response = await axios.get(`http://localhost:5000/log-out`, { withCredentials: true })
+            const response = await axios.get(`/log-out`, { withCredentials: true })
             if (response.status === 200) {
                 await getUserInfo()
                 if (location.pathname === '/cart' || location.pathname === '/wishlist') {

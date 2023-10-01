@@ -17,7 +17,7 @@ const RemoveWishListItemModal: FC<RemoveWishListItemModalProps> = ({ setRemoveMo
         try {
             const wishListIem = wishList.find((productInWishList: any) => productInWishList.id === product.id)
             const productId = product._id ? product._id : wishListIem._id
-            const response = await axios.delete('http://localhost:5000/remove-item-from-wishlist', {
+            const response = await axios.delete('/remove-item-from-wishlist', {
                 data: { productId },
                 withCredentials: true
             });
