@@ -54,6 +54,7 @@
 .footerSmallTxt {
     color: #dadada;
     font-size: 14px;
+    text-decoration: none   ;
 }
 
 .footerSmallTxt.list {

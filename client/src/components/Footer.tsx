@@ -2,8 +2,15 @@ import '../styles/Footer.css'
 import PayPayImg from '../assets/FooterImgs/payPal.png'
 import VisaImg from '../assets/FooterImgs/visaImg.png'
 import MasterCardImg from '../assets/FooterImgs/masterCard.png'
+import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+    const navigate = useNavigate()
+
+    const handleShopNavigation = () => {
+        navigate('/shop/all-products')
+    }
+
     return (
         <footer className='footerWrapper'>
             <div className='footerContent'>
@@ -15,21 +22,29 @@ const Footer = () => {
                     <div className='footerMenuOptionsWrapper'>
                         <ul className='footerMenuListWrapper'>
                             <li className='footerHeaderTxt'>SHOP</li>
-                            <li className='footerSmallTxt list'>All Collections</li>
-                            <li className='footerSmallTxt list'>Winter Edition</li>
-                            <li className='footerSmallTxt list'>Discount</li>
+                            <li className='footerSmallTxt list' onClick={() => handleShopNavigation()}>All Collections</li>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>Winter Edition</a>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>Discount</a>
                         </ul>
                         <ul className='footerMenuListWrapper'>
                             <li className='footerHeaderTxt'>COMPANY</li>
-                            <li className='footerSmallTxt list'>About Us</li>
-                            <li className='footerSmallTxt list'>Contact</li>
-                            <li className='footerSmallTxt list'>Affiliates</li>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>About Us</a>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>Contact</a>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>Affiliates</a>
                         </ul>
                         <ul className='footerMenuListWrapper'>
                             <li className='footerHeaderTxt'>SUPPORT</li>
-                            <li className='footerSmallTxt list'>FAQs</li>
-                            <li className='footerSmallTxt list'>Cookie Policy</li>
-                            <li className='footerSmallTxt list'>Terms of Use</li>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>FAQs</a>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>Cookie Policy</a>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank" rel="noreferrer"
+                            className='footerSmallTxt list' onMouseDown={(e) => e.preventDefault()}>Terms of Use</a>
                         </ul>
                         <div className='paymentMethodsWrapper'>
                             <span className='footerHeaderTxt'>PAYMENT METHODS</span>

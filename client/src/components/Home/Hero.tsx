@@ -11,7 +11,7 @@ import heroImg4 from '../../assets/CarouselImgs/heroImg4.jpg'
 const Hero = () => {
     const [currIndex, setCurrIndex] = useState(0)
     const autoSlide = true; // Determines whether the auto slide effect for the carousel is active or not
-    const autoSlideTimeInterval = 4000; // Determines the time interval for the autoslide effect
+    const autoSlideTimeInterval = 6000; // Determines the time interval for the autoslide effect
     const [loader, setLoader] = useState(true)
     const navigate = useNavigate()
     if (loader) {

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const Product = require("../models/product");
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const webhookSecret = process.env.STRIPE_SIGNING_SECRET
 
 router.post("/create-checkout-session", async (req, res) => {
   try {
@@ -29,8 +31,8 @@ router.post("/create-checkout-session", async (req, res) => {
           quantity: product.productQuantity,
         };
       }),
-      success_url: `http://localhost:3000/cart`,
-      cancel_url: `http://localhost:3000/cart`,
+      success_url: `https://virtual-emporium.onrender.com`,
+      cancel_url: `https://virtual-emporium.onrender.com/cart`,
     });
     res.status(200).json({ url: session.url });
   } catch (err) {
@@ -38,5 +40,25 @@ router.post("/create-checkout-session", async (req, res) => {
     res.status(500).send({ message: "Server error" });
   }
 });
+
+router.post('/stripe-checkout-webhook', async (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  const userId = req.user._id.toString();
+  try {
+    const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+
+    // Handle the event based on its type (e.g., checkout.session.completed)
+    if (event.type === 'checkout.session.completed') {
+      // Update your database or perform other actions
+      await Product.deleteMany({ userID: userId });
+      console.log('Checkout completed:', event.data.object.id);
+    }
+
+    res.json({ received: true });
+  } catch (err) {
+    console.error('Error handling webhook:', err);
+    res.status(400).send('Webhook Error');
+  }
+})
 
 module.exports = router
