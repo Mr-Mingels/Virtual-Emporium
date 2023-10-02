@@ -59,7 +59,14 @@
 .productStarIcon {
     width: 16px;
     height: 16px;
+}
+
+.productStarIcon.fullStar {
     color: #1b1b1b;
+}
+
+.productStarIcon.emptyStar {
+    color: #dadada;
 }
 
 .productRatingCount {

@@ -205,7 +205,7 @@ const NavBar: FC<NavBarProps> = ({ windowWidth, allProducts, isLoggedIn, getUser
                         handleAuthenticationOpen()
                       }}>
                         <FontAwesomeIcon icon={faUser} className='navBarDrawerIcon' />
-                        <span className='navBarDrawerGeneralLinkTxt'>Log in or Register</span>
+                        <span className='navBarDrawerGeneralLinkTxt'>{isLoggedIn ? 'Logout' : 'Log in or Register'}</span>
                       </div>
                       <div className='navBarDrawerGeneralLinksWrapper' onClick={() => {
                         setAuthNavigationOption('/wishlist')

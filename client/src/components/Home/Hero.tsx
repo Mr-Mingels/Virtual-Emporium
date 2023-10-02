@@ -10,7 +10,7 @@ import heroImg4 from '../../assets/CarouselImgs/heroImg4.jpg'
 
 const Hero = () => {
     const [currIndex, setCurrIndex] = useState(0)
-    const autoSlide = true; // Determines whether the auto slide effect for the carousel is active or not
+    const [autoSlide, setAutoSlide] = useState(false); // Determines whether the auto slide effect for the carousel is active or not
     const autoSlideTimeInterval = 6000; // Determines the time interval for the autoslide effect
     const [loader, setLoader] = useState(true)
     const navigate = useNavigate()
@@ -41,7 +41,7 @@ const Hero = () => {
         if (!autoSlide) return
         const slideInterval = setInterval(handleNextSlide, autoSlideTimeInterval)
         return () => clearInterval(slideInterval)
-    }, [])
+    }, [autoSlide])
 
     useEffect(() => {
         if (!loader) {
@@ -58,7 +58,10 @@ const Hero = () => {
             )}
             <div className='carouselSlides' style={{ transform: `translateX(-${currIndex * 100}%)` }}>
                 {slides.map((slide, index) => (
-                    <img onLoad={() => setLoader(false)} className='heroSliderImg' key={index} src={slide} alt='hero slider images' loading="lazy" />
+                    <img onLoad={() => {
+                        setAutoSlide(true)
+                        setLoader(false)
+                    }} className='heroSliderImg' key={index} src={slide} alt='hero slider images' />
                 ))}
             </div>
             <div className='carouselBtnsWrapper'>

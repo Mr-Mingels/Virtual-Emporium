@@ -17,11 +17,12 @@ interface ProductProps {
   handleAuthenticationOpen: Function,
   isLoggedIn: boolean,
   userInfo: any,
-  getUserWishListInfo: Function
+  getUserWishListInfo: Function,
+  getUserCartInfo: Function
 }
 
 const Product: FC<ProductProps> = ({ windowWidth, allProducts, product, handleAuthenticationOpen, isLoggedIn, userInfo, wishList,
-  getUserWishListInfo }) => {
+  getUserWishListInfo, getUserCartInfo }) => {
   const [category, setCategory] = useState('')
   const [relatedProducts, setRelatedProducts] = useState([])
   const roundedNum = Math.round(product.rating.rate)
@@ -105,6 +106,7 @@ const Product: FC<ProductProps> = ({ windowWidth, allProducts, product, handleAu
       };
       const response = await axios.post('/add-product-to-cart', newProduct, { withCredentials: true })
       if (response.status === 200) {
+        await getUserCartInfo()
         setAddedToCart(true);
         setTimeout(() => {
           setAddedToCart(false);

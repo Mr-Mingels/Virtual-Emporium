@@ -157,7 +157,7 @@ const App = () => {
             <Route key={index} path={`/product/${product.id}`}
               element={<Product windowWidth={windowWidth} allProducts={allProducts} product={product} setShoppingCart={setShoppingCart}
                 shoppingCart={shoppingCart} wishList={wishList} handleAuthenticationOpen={handleAuthenticationOpen}
-                isLoggedIn={isLoggedIn} userInfo={userInfo} getUserWishListInfo={getUserWishListInfo}/>}
+                isLoggedIn={isLoggedIn} userInfo={userInfo} getUserWishListInfo={getUserWishListInfo} getUserCartInfo={getUserCartInfo}/>}
             />
           ))}
           <Route path='/cart' element={<ShoppingCart windowWidth={windowWidth} isLoggedIn={isLoggedIn}
