@@ -34,8 +34,6 @@ The common functionalities are:
 
 - HTML/CSS
 
-- Chart JS
-
 - MongoDB
 
 - Mongoose
