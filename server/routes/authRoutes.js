@@ -16,13 +16,10 @@ router.post("/sign-up-page", async (req, res) => {
 
     if (!req.body.email || !password) {
       return res.status(400).send({ message: "All fields are required" });
-    } else if (userByEmail) {
-      return res.status(400).send({ message: "Email has already been taken" });
     }
 
     bcrypt.hash(password, 10, async (err, hashedPassword) => {
       if (err) console.log(err);
-      console.log("", hashedPassword);
       const user = new User({
         email: email,
         password: hashedPassword,
