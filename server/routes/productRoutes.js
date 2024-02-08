@@ -93,11 +93,7 @@ router.get("/cart-products", async (req, res) => {
   try {
     const userId = req.user._id.toString();
     const cartProducts = await Product.find({ userID: userId });
-    if (cartProducts.length > 0) {
-      return res.status(200).json({ cartProducts });
-    } else {
-      return res.status(400).send({ message: "Cart is empty" });
-    }
+    return res.status(200).json({ cartProducts });
   } catch (err) {
     console.log(err);
     res.status(500).send({ message: "Server error" });
@@ -108,11 +104,7 @@ router.get("/wishlist-items", async (req, res) => {
   try {
     const userId = req.user._id.toString();
     const wishListItems = await WishListItem.find({ userID: userId });
-    if (wishListItems.length > 0) {
-      return res.status(200).json({ wishListItems });
-    } else {
-      return res.status(400).send({ message: "WishList is empty" });
-    }
+    return res.status(200).json({ wishListItems });
   } catch (err) {
     console.log(err);
     res.status(500).send({ message: "Server error" });
